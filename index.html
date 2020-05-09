@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="starter-container">
+            <div class="starter-card">
+            <h1>Welcome To My General Quiz Test</h1>
+            <h3>Test Your IQ With five Simple Questions</h3>
+            <button id="myBtn" class="btn"> START QUIZ! </button>
+            </div>
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <h3 id="question" class="question">
+                </h3>
+                <div class="options">
+                <p id="0" class="option1" onclick="check(this)"></p>
+                <p id="1" class="option2" onclick="check(this)"></p>
+                <p id="2" class="option3" onclick="check(this)"></p>
+                <p id="3" class="option4" onclick="check(this)"></p>
+                </div>
+                <button id="next-question" onclick="next()">Next Question</button>
+              </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+          </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
