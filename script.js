@@ -1,11 +1,11 @@
 // Get the modal
-var modal = document.getElementById("myModal");
+const modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+const btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+const span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -23,164 +23,148 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 };
-
-// to store variables, highlighting the target elements, classes and id's
-
-// current question number and total question number
-const questionNumber = document.querySelector('.current-question');
-const totalQuestion = document.querySelector('.total-question');
-// Question
-const question = document.querySelector('.question')
-// options
-const opt1 = document.querySelector('.option1');
-const opt2 = document.querySelector('.option2');
-const opt3 = document.querySelector('.option3');
-const opt4 = document.querySelector('.option4');
-const options = document.querySelector('.option-container').children;
-// results
-const currentScore = document.querySelector('.correct-answers');
-const totalObtainable = document.querySelector('.possible-score');
-const end = document.querySelector('.game-over');
+//quiz container
+const quizContainer = document.querySelector('.quiz-container');
+// variables for the current question number and total questions in the quiz
+const currentQuestion = document.querySelector('.current-question');
+const totalQuestions = document.querySelector('.total-questions');
+// Questions container
+const questionText = document.querySelector('.questions');
+// Options container
+const option1 = document.querySelector('.option1');
+const option2 = document.querySelector('.option2');
+const option3 = document.querySelector('.option3');
+const option4 = document.querySelector('.option4');
+const options = document.querySelector('.options').children;
+// Variables for the points obtained in the end
+const finalScore = document.querySelector('.final-score');
+const obtainablePoints = document.querySelector('.possible-score');
+// End of the quiz
+const quizEnd = document.querySelector('.quizover');
 //score counter
-const scoreCount = document.querySelector('.current-score');
+const currentScore = document.querySelector('.current-score');
+//Error Message
+const errorMessage = document.querySelector('.error-message');
 
-let count = 0;
-let questionIndex;
+let questionCount = 0;
+let questionNumber;
 let index = 0;
+let questionsArray = [];
 let myArray = [];
-let myArr = [];
 let score = 0;
+let count = 0;
 
 // array containing questions, options and answers
 const questions = [
     {
-        q: 'Which of these options is not a "form tag attribute"?',
-        options: ['action', 'method', 'enctype', 'label'],
+        question: 'Which club has the highest number of UEFA Champions League Trophies?',
+        options: ['Barcelona', 'Liverpool', 'Juventus', 'Real Madrid'],
         answer: [3]
-    }, {
-        q: 'How do you write an if statement in "Javascript"?',
-        options: ['if a == 5', 'if (a == 5)', 'if a = 5', 'if (a = 5)'],
+    }, 
+    {
+        question: 'Which football player has the most number trophies?',
+        options: ['Lionel Messi', 'Dani Alves', 'Christiano Ronaldo', 'Neymar Jr'],
         answer: [1]
     },
     {
-        q: 'How do you call a function in "Javascript"?',
-        options: ['name(parameter)', 'function(name)', 'parameter(name)', 'none of the above'],
+        question: 'Which country won the 2006 world cup?',
+        options: ['Spain', 'Italy', 'France', 'Nigeria'],
+        answer: [1]
+    },
+    {
+        question: 'Who was the highest goal scorer in the 2010 world cup?',
+        options: ['Thomas Muller', 'Andres Iniesta', 'David Villa', 'Yakubu'],
+        answer: [2]
+    },
+    {
+        question: 'Which team has the highest English premier league trophies?',
+        options: ['Manchester United', 'Chelsea', 'Arsenal', 'Liverpool'],
         answer: [0]
-    },
-    {
-        q: 'Which City did Covid-19 originate from?',
-        options: ['Beijing', 'Wuhan', 'Yuhan', 'Wuan'],
-        answer: [1]
-    },
-    {
-        q: 'Which language is used for styling web pages?',
-        options: ['XML', 'JQUERY', 'HTML', 'CSS'],
-        answer: [3]
     }
-]
-
-// write functions to display questions, current question, total question number
-totalQuestion.innerHTML = questions.length;
-function load() {
-    questionNumber.innerHTML = index+1;
-    question.innerHTML = questions[questionIndex].q;
-    opt1.innerHTML = questions[questionIndex].options[0];
-    opt2.innerHTML = questions[questionIndex].options[1];
-    opt3.innerHTML = questions[questionIndex].options[2];
-    opt4.innerHTML = questions[questionIndex].options[3];
+];
+//Shows the total number of questions to the DOM
+totalQuestions.innerText = questions.length;
+// Display questions, identify current question and total question number
+function loadQuestions() {
+    currentQuestion.innerHTML = index+1;
+    questionText.innerHTML = questions[questionNumber].question;
+    option1.innerHTML = questions[questionNumber].options[0];
+    option2.innerHTML = questions[questionNumber].options[1];
+    option3.innerHTML = questions[questionNumber].options[2];
+    option4.innerHTML = questions[questionNumber].options[3];
     index++;
    
-}
- 
-function randomQuestions() {
-    let randomNumber = Math.floor(Math.random() * questions.length);
-    let hitDuplicate = 0;
+};
+// Shows each question
+const allQuestions = () =>{
     if (index == questions.length){
-        gameOver();
+        endGame();
     }
-    else{
-        if (myArray.length > 0){
-            for (let i = 0; i < myArray.length; i++){
-                if (myArray[i] == randomNumber){
-                    hitDuplicate = 1;
-                    break;
-                }
-            } 
-            if (hitDuplicate == 1){
-                randomQuestions();
-            }
-            else {
-                questionIndex = randomNumber;
-                load();
-                myArr.push(questionIndex);
-            }
+    else if (questionsArray.length == 0){
+            questionNumber = index
+            loadQuestions();
+            myArray.push(questionNumber);  
         }
-            if (myArray.length == 0){
-                questionIndex = randomNumber;
-                load();
-                myArr.push(questionIndex);
-            }
-    //    console.log('myArr:'+myArr);
-        myArray.push(randomNumber);
-    }
-   
 }
-
-// check if answer is correct or wrong
-function check(element) {
-    if (element.id == questions[questionIndex].answer){
+// Validate answer correct or wrong
+function validate(element) {
+    if (element.id == questions[questionNumber].answer){
        element.classList.add('correct'); 
         counter();
        score++;
-        
-
     }
     else {
         element.classList.add('wrong');
     }
     disabledOptions();
 }
-
-// make other options non-selectable after user selects option
+// Disable other options after user selects one option
 function disabledOptions() {
     for (let i = 0; i < options.length; i++){
     options[i].classList.add('disabled');
-    if (options[i].id == questions[questionIndex].answer){
+    if (options[i].id == questions[questionNumber].answer){
         options[i].classList.add('correct');
     }
 }
 }
-
+// enable other options in the next question
 function enableOptions(){
     for (let i = 0; i < options.length; i++) {
         options[i].classList.remove('disabled', 'correct', 'wrong');
 }
 }
-function validate() {
+// Checks if an option has been selected
+function check() {
     if (!options[0].classList.contains('disabled')){
-        alert("Please Select an Option");
+        errorMessage.classList.remove('remove');
     }
         else {
-        randomQuestions();
+        allQuestions();
         enableOptions();
+        errorMessage.classList.add('remove')
         }
     }
-
+// Goes to the next question
 function next(){
-    validate();
+    check();
 }
+// Increases the score when a correct option is selected
 function counter(){
     count++;
-    scoreCount.innerHTML = count;
+    currentScore.innerHTML = count;
 }
-function gameOver() {
-    end.classList.add('show');
-    currentScore.innerHTML = score;
-    totalObtainable.innerHTML = questions.length;
+function endGame() {
+        quizContainer.classList.add('remove');
+        quizEnd.classList.remove('remove');
+        obtainablePoints.innerText = questions.length;
+        finalScore.innerText = count;
+}
+function tryAgain(){
+    location.reload()
 }
 function startAgain (){
     window.location.reload();
 }
 window.onload = function(){
-    randomQuestions()
+    allQuestions();
 }
