@@ -10,8 +10,8 @@
     <div class="app-container">
         <div class="starter-container">
             <div class="starter-card">
-            <h1>Welcome To My General Quiz Test</h1>
-            <h3>Test Your IQ With five Simple Questions</h3>
+            <h1>Sports Quiz</h1>
+            <h3>Test Your sports knowledge by answering five Simple Questions</h3>
             <button id="myBtn" class="btn"> START QUIZ! </button>
             </div>
         </div>
@@ -19,15 +19,14 @@
             <div class="modal-content">
               <div class="modal-header">
                 <span class="close">&times;</span>
-                <h3>SPORTS QUIZ</h3>
               </div>
               <div class="modal-body">
-                  <div class="quiz-container">
+                <div class="quiz-container">
                 <div class="score-container">
-                    <div id="answered">
+                    <div id="questions-answered">
                         Question <span class="current-question"></span> of <span class="total-questions"></span>
                     </div>
-                    <div> Your Score: <span class="current-score">0</span></div>
+                    <div class="user-score"> Score: <span class="current-score">0</span></div>
                 </div>
                 <h3 id="question" class="questions"></h3>
                 <div class="remove error-message">Please Select an Option</div>
@@ -37,15 +36,19 @@
                 <div id="2" class="option option3" onclick="validate(this)"></div>
                 <div id="3" class="option option4" onclick="validate(this)"></div>
                 </div>
-                <button class="btn" id="next-question" onclick="next()">Next Question</button>
+                <div class="button">
+                    <button class="btn" id="next-question" onclick="next()">Next Question</button>
+                </div>
                 </div>
                 <div class="quizover remove">
-                    <div class="container">
-                    <h1>Thanks for completing the quiz <br><br>
+                    <div class="container-end">
+                    <h1>Thank You <br>
                         You got <span class="final-score"></span> out of <span class="possible-score"></span> 
-                        questions correctly
+                        questions.
                     </h1>
-                    <button class="btn" onclick="tryAgain()">Try Again</button>
+                    <div class="new-quiz">
+                    <button class="btn" onclick="tryAgain()">Take Another Test</button>
+                    </div>
                 </div>
               </div>
             </div>

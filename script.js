@@ -62,7 +62,7 @@ const questions = [
         answer: [3]
     }, 
     {
-        question: 'Which football player has the most number trophies?',
+        question: 'Which football player has the highest number trophies?',
         options: ['Lionel Messi', 'Dani Alves', 'Christiano Ronaldo', 'Neymar Jr'],
         answer: [1]
     },
@@ -153,17 +153,16 @@ function counter(){
     count++;
     currentScore.innerHTML = count;
 }
+//show score of the user
 function endGame() {
         quizContainer.classList.add('remove');
         quizEnd.classList.remove('remove');
         obtainablePoints.innerText = questions.length;
         finalScore.innerText = count;
 }
+//start the game again
 function tryAgain(){
     location.reload()
-}
-function startAgain (){
-    window.location.reload();
 }
 window.onload = function(){
     allQuestions();
