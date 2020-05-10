@@ -1,6 +1,7 @@
 html, body{
     background-color: darkslategray;
     color: whitesmoke;
+    overflow-x: hidden;
 }
 .app-container{
     width: 100%;
@@ -42,28 +43,24 @@ html, body{
 .btn:focus{
     outline: 0;
 }
-/* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    position: absolute; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow-y: scroll;/* Enable scroll if needed */
+    overflow: scroll;/* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
-  
-  /* Modal Content */
   .modal-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    overflow-y: scroll;
     border: 1px solid #888;
     width: 60%;
     color: black;
@@ -73,8 +70,6 @@ html, body{
     animation-name: animatetop;
     animation-duration: 0.4s
   }
-  
-  /* Add Animation */
   @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0} 
     to {top:0; opacity:1}
@@ -84,22 +79,18 @@ html, body{
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
   }
-  
-  /* The Close Button */
   .close {
     color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
-  
   .close:hover,
   .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
   }
-  
   .modal-header {
     padding: 2px 16px;
     /* background-color: darkslategray; */
@@ -127,7 +118,7 @@ html, body{
     border: 1px solid darkgoldenrod;
     border-radius: 10px;
     margin: 5px;
-    padding: 3px;
+    padding: 5px;
     font-size: 1.5rem;
     cursor: pointer;
   }
@@ -157,6 +148,7 @@ html, body{
 }
 .score-container{
     padding: 10px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -174,6 +166,14 @@ html, body{
     color: darkgoldenrod;
 }
 .container-end{
+    text-align: center;
+}
+.error-message{
+    text-align: center;
+    color: orangered;
+    font-size: 1.3rem;
+}
+.questions{
     text-align: center;
 }
 @media(max-width:575px){
