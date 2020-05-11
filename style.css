@@ -1,7 +1,8 @@
 html, body{
     background-color: darkslategray;
     color: whitesmoke;
-    overflow-x: hidden;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
 }
 .app-container{
     width: 100%;
@@ -35,7 +36,8 @@ html, body{
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  margin-top: 10px
+  margin-top: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .btn:hover{
     background-color: darkgoldenrod;
@@ -156,6 +158,7 @@ html, body{
     justify-content: space-between;
     font-size: 1.2rem;
     color: rgba(236, 175, 20, 0.945);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .button{
     text-align: right;
@@ -217,6 +220,6 @@ html, body{
         width: 75%;
     }
     .score-container{
-        font-size: 1rem;
+        font-size: 0.7rem;
     }
 }
