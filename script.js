@@ -62,7 +62,7 @@ const questions = [
         answer: [3]
     }, 
     {
-        question: 'Which football player has the highest number trophies?',
+        question: 'Which football player has the highest number of trophies?',
         options: ['Lionel Messi', 'Dani Alves', 'Christiano Ronaldo', 'Neymar Jr'],
         answer: [1]
     },
@@ -73,7 +73,7 @@ const questions = [
     },
     {
         question: 'Who was the highest goal scorer in the 2010 world cup?',
-        options: ['Thomas Muller', 'Andres Iniesta', 'David Villa', 'Yakubu'],
+        options: ['Thomas Muller', 'Andres Iniesta', 'David Villa', 'Yakubu Ayegbeni'],
         answer: [2]
     },
     {

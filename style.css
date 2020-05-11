@@ -124,12 +124,13 @@ html, body{
     padding: 5px;
     font-size: 1.2rem;
     cursor: pointer;
+    color: darkslategray;
     /* box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.075) */
   }
   .modal-body .btn{
       background-color: rgb(240, 174, 9);
       border: 1px solid rgb(240, 174, 9);
-      border-radius: 20px;
+      border-radius: 30px;
       margin-bottom: 20px;
       font-size: 1rem;
       padding: 15px 10px;
@@ -196,17 +197,19 @@ html, body{
     margin-top: 50px;
 }
 #questions-answered{
-    border: 1px solid white;
-    background-color: white;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border: 1px solid darkslategray;
+    background-color: darkslategray;
+    color: white;
+    /* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); */
     border-radius: 15px;
     padding: 10px;
 }
 .user-score{
-    border: 1px solid white;
-    background-color: white;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    border-radius: 15px;
+    /* border: 1px solid white;
+    background-color: white; */
+    border-bottom: 3px solid darkslategray;
+    /* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); */
+    /* border-radius: 15px; */
     padding: 10px;
 }
 @media(max-width:575px){
@@ -220,6 +223,6 @@ html, body{
         width: 75%;
     }
     .score-container{
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 }
