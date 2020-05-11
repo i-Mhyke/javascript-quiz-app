@@ -58,11 +58,11 @@ html, body{
   }
   .modal-content {
     position: relative;
-    background-color: #fefefe;
+    background-color: #edf0f5;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 60%;
+    width: 50%;
     color: black;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
@@ -93,7 +93,7 @@ html, body{
   }
   .modal-header {
     padding: 2px 16px;
-    /* background-color: darkslategray; */
+    background-color: darkgoldenrod; 
     color: #F9F871;
     text-align: center;
   }
@@ -115,25 +115,28 @@ html, body{
       display: none;
   }
   .option{
-    border: 1px solid darkgoldenrod;
+    border: 1px solid #d2d7df;
+    background-color: #d2d7df;
     border-radius: 10px;
-    margin: 5px;
+    margin: 10px;
     padding: 5px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     cursor: pointer;
+    /* box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.075) */
   }
   .modal-body .btn{
-      background-color: darkslategray;
-      border: 1px solid darkslategray;
+      background-color: rgb(240, 174, 9);
+      border: 1px solid rgb(240, 174, 9);
       border-radius: 20px;
       margin-bottom: 20px;
-      font-size: 1.2rem;
+      font-size: 1rem;
       padding: 15px 10px;
       font-weight: normal;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15)
   }
   .modal-body .btn:hover{
-      background-color: transparent;
-      color: darkslategray;
+      background-color: rgb(235, 187, 65);     
+      border-color: rgb(235, 187, 65);     
   }
   .modal-body h3{
       margin-top: 0px;
@@ -151,10 +154,8 @@ html, body{
     padding-top: 20px;
     display: flex;
     justify-content: space-between;
-}
-.score-container{
-    font-size: 1.5rem;
-    color: darkgoldenrod;
+    font-size: 1.2rem;
+    color: rgba(236, 175, 20, 0.945);
 }
 .button{
     text-align: right;
@@ -169,12 +170,41 @@ html, body{
     text-align: center;
 }
 .error-message{
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
     text-align: center;
-    color: orangered;
-    font-size: 1.3rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    border-top-color: #f1b0b7
 }
 .questions{
     text-align: center;
+    color: grey;
+    padding: 10px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    background-color: honeydew;
+    border: 1px solid honeydew;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+#questions-answered{
+    border: 1px solid honeydew;
+    background-color: honeydew;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    padding: 10px;
+}
+.user-score{
+    border: 1px solid honeydew;
+    background-color: honeydew;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    padding: 10px;
 }
 @media(max-width:575px){
     .modal-content{
@@ -185,5 +215,8 @@ html, body{
     }
     .starter-card{
         width: 75%;
+    }
+    .score-container{
+        font-size: 1rem;
     }
 }

@@ -85,7 +85,7 @@ const questions = [
 //Shows the total number of questions to the DOM
 totalQuestions.innerText = questions.length;
 // Display questions, identify current question and total question number
-function loadQuestions() {
+const loadQuestions = () => {
     currentQuestion.innerHTML = index+1;
     questionText.innerHTML = questions[questionNumber].question;
     option1.innerHTML = questions[questionNumber].options[0];
@@ -107,7 +107,7 @@ const allQuestions = () =>{
         }
 }
 // Validate answer correct or wrong
-function validate(element) {
+const validate = (element) =>{
     if (element.id == questions[questionNumber].answer){
        element.classList.add('correct'); 
         counter();
@@ -119,7 +119,7 @@ function validate(element) {
     disabledOptions();
 }
 // Disable other options after user selects one option
-function disabledOptions() {
+const disabledOptions = () =>{
     for (let i = 0; i < options.length; i++){
     options[i].classList.add('disabled');
     if (options[i].id == questions[questionNumber].answer){
@@ -128,13 +128,13 @@ function disabledOptions() {
 }
 }
 // enable other options in the next question
-function enableOptions(){
+const enableOptions = () =>{
     for (let i = 0; i < options.length; i++) {
         options[i].classList.remove('disabled', 'correct', 'wrong');
 }
 }
 // Checks if an option has been selected
-function check() {
+const check = () =>{
     if (!options[0].classList.contains('disabled')){
         errorMessage.classList.remove('remove');
     }
@@ -145,23 +145,23 @@ function check() {
         }
     }
 // Goes to the next question
-function next(){
+const next = () =>{
     check();
 }
 // Increases the score when a correct option is selected
-function counter(){
+const counter = () =>{
     count++;
     currentScore.innerHTML = count;
 }
 //show score of the user
-function endGame() {
+const endGame = () =>{
         quizContainer.classList.add('remove');
         quizEnd.classList.remove('remove');
         obtainablePoints.innerText = questions.length;
         finalScore.innerText = count;
 }
 //start the game again
-function tryAgain(){
+const tryAgain = () =>{
     location.reload()
 }
 window.onload = function(){
