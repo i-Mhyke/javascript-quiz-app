@@ -186,22 +186,22 @@ html, body{
     color: grey;
     padding: 10px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    background-color: honeydew;
-    border: 1px solid honeydew;
+    background-color: white;
+    border: 1px solid white;
     border-radius: 5px;
     margin-bottom: 20px;
     margin-top: 50px;
 }
 #questions-answered{
-    border: 1px solid honeydew;
-    background-color: honeydew;
+    border: 1px solid white;
+    background-color: white;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     border-radius: 15px;
     padding: 10px;
 }
 .user-score{
-    border: 1px solid honeydew;
-    background-color: honeydew;
+    border: 1px solid white;
+    background-color: white;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     border-radius: 15px;
     padding: 10px;
